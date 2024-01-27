@@ -1,6 +1,6 @@
 "EDIT_FASTA" 
 
-The code provides the following five functions:
+The .py and .ipynb files are offered, which providing the following five functions:
 
 'Merge': Merge files(.txt, .fasta, or other text files) in the same folder into the same new file.
 
