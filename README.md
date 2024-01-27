@@ -26,3 +26,5 @@ The .py and .ipynb files are offered, which providing the following five functio
 
   example:
   EDIT_FASTA('input file path', 'output file path', 'Num_format', 4, 'MyProtein_') # 4 means number length = 4, e.g. 1 --> 0001, 11 --> 0011.
+
+!!! My major is neither biology nor computers, so there may be errors in the code. I hope you will correct me.
