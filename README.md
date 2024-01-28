@@ -36,5 +36,3 @@ Change the protein IDs number format and can also be prefixed with ID. By defaul
 
 example:
   EDIT_FASTA('input file path', 'output file path', 'Num_format', 4, 'MyProtein_') # 4 means number length = 4, e.g. 1 --> 0001, 11 --> 0011.
-
-# !!! I'm not an expert in biology or computer science, so please bear with any potential errors in the code and correct me.
