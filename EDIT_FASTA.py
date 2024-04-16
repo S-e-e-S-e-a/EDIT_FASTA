@@ -163,6 +163,23 @@ def Num_format(file_in, file_out, *arg):
         f_out.writelines(lines_new)
         f_out.close
 
+def ID_extract(file_in, file_out):
+    # file_in: Input file path
+    # file_out: Output file path
+    import re
+    lines_new = []
+    matchPattern = re.compile('>')
+    with open(file_in, 'r', encoding='utf-8') as f_in:
+        while 1:
+            line = f_in.readline()
+            if not line:
+                break
+            if matchPattern.search(line):
+                lines_new.append(line[1:])
+    with open(file_out, 'w', encoding='utf-8') as f_out:
+        f_out.writelines(lines_new)
+        f_out.close
+
 def EDIT_FASTA(f_in, f_out, mode, *arg):
     # f_in: Input file path or floder path
     # f_out: Output file path
@@ -172,6 +189,7 @@ def EDIT_FASTA(f_in, f_out, mode, *arg):
     # 'CutTail': Cut off the tail alignment
     # 'ATCG_replace': Replace chars that is not 'A' or 'T' or 'C' or 'G' as '-'
     # 'Num_format': Change the protein IDs number format
+    # 'ID_extract': Get the protein IDs only
     if mode == 'Merge':
         Merge(f_in, f_out)
     elif mode == 'CutID':
@@ -182,6 +200,8 @@ def EDIT_FASTA(f_in, f_out, mode, *arg):
         ATCG_replace(f_in, f_out)
     elif mode == 'Num_format':
         Num_format(f_in, f_out, *arg)
+    elif mode == 'ID_extract':
+        ID_extract(f_in, f_out)
     else:
         print('No mode named ' + mode)
 
@@ -191,4 +211,4 @@ def EDIT_FASTA(f_in, f_out, mode, *arg):
 # EDIT_FASTA('input file path', 'output file path', 'CutTail')
 # EDIT_FASTA('input file path', 'output file path', 'ATCG_replace')
 # EDIT_FASTA('input file path', 'output file path', 'Num_format', 4, 'MyProtein_')
-
+# EDIT_FASTA('input file path', 'output file path', 'ID_extract')
